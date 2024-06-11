@@ -1,0 +1,54 @@
+.dot-bubbles {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 70px;
+    width: 90%;
+    justify-content: space-around;
+    z-index: -1;
+}
+
+.dot-bubbles span {
+    position: relative;
+    width: calc(20px + (40 - 20) * ((100vw - 300px) / (1600 - 300)));
+    height: calc(20px + (40 - 20) * ((100vw - 300px) / (1600 - 300)));
+    background: #ffe100;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #ffe100, 0 0 50px #ffe100, 0 0 100px #ffe100;
+    animation: animate 15s linear infinite, sway 5s linear infinite;
+    animation-duration: calc(245s / var(--i));
+    opacity: calc(0.6 + 0.4 * ((100vw - 300px) / (1600 - 300)));
+}
+
+.dot-bubbles span:nth-child(even) {
+    background: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(-10vh) scale(0.5);
+        background: #ff2d75;
+        box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+    }
+    50% {
+        transform: translateY(50vh) scale(1);
+        background: #ffe100;
+        box-shadow: 0 0 0 10px #4fc3dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    }
+    100% {
+        transform: translateY(100vh) scale(0);
+        background: #ff2d75;
+        box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+    }
+}
+
+@keyframes sway {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(20px);
+    }
+}
